@@ -2,11 +2,11 @@ defmodule ExTwilio.Config do
 
   def username, do: from_env(:ex_mitake, :username)
 
-  def password, do: from_env(:ex_mitake, :username)
+  def password, do: from_env(:ex_mitake, :password)
 
   def api_domain, do: from_env(:ex_mitake, :api_domain, "smexpress.mitake.com.tw")
 
-  def api_port, do: from_env(:ex_mitake, :api_port, "7002")
+  def api_port, do: from_env(:ex_mitake, :api_port, "7003")
 
   def base_url, do: "http://#{api_domain()}:#{api_port()}"
 
