@@ -14,13 +14,17 @@ defmodule ExMitake.UrlGenerator do
   def to_query_string(list) do
     list
     |> Enum.flat_map(fn
-      {key, value} when is_list(value) -> Enum.map(value, &{camelize(key), &1})
-      {key, value} -> [{camelize(key), value}]
+      {key, value} when is_list(value) -> Enum.map(value, &{downcase(key), &1})
+      {key, value} -> [{downcase(key), value}]
     end)
     |> URI.encode_query()
   end
 
   defp hacked_string(url) do
     String.replace(url, "+", "%20")
+  end
+
+  defp downcase(name) do
+    name |> to_string |> downcase()
   end
 end

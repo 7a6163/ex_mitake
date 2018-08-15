@@ -1,4 +1,4 @@
-defmodule ExTwilio.Config do
+defmodule ExMitake.Config do
 
   def username, do: from_env(:ex_mitake, :username)
 

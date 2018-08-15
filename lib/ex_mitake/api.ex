@@ -1,6 +1,7 @@
 defmodule ExMitake.Api do
   use HTTPoison.Base
   alias ExMitake.UrlGenerator, as: Url
+  alias __MODULE__
 
   def send_message(data) do
     data |> format_data |> Url.build_url() |> Api.get!()
