@@ -6,9 +6,9 @@ defmodule ExMitake.Config do
 
   def api_domain, do: from_env(:ex_mitake, :api_domain, "smexpress.mitake.com.tw")
 
-  def api_port, do: from_env(:ex_mitake, :api_port, "7003")
+  def api_port, do: from_env(:ex_mitake, :api_port, "80")
 
-  def base_url, do: "http://#{api_domain()}:#{api_port()}"
+  def base_url, do: "http://#{api_domain()}"
 
   def from_env(otp_app, key, default \\ nil)
 
