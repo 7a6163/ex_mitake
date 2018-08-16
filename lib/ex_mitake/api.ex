@@ -5,8 +5,8 @@ defmodule ExMitake.Api do
   alias __MODULE__
 
   def send_message(data) do
-    url = "http://#{Config.api_domain()}:7003/SpSendUtf?CharsetURL=utf-8&username=#{Config.username()}&password=#{Config.password()}"
-    data |> format_data |> build_url(url) |> Api.get!()
+    url = "http://#{Config.api_domain()}:7003/SpSendUtf?"
+    data |> append_auth() |> format_data() |> build_url(url) |> Api.get!()
   end
 
   defp build_url(query_string, base_url) do
@@ -23,5 +23,13 @@ defmodule ExMitake.Api do
     Url.to_query_string(data)
   end
 
-  defp format_data(data), do: data
+  defp format_data(data) do
+    data
+  end
+
+  defp append_auth(data) do
+    [username: Config.username(),
+     password: Config.password(),
+     CharsetURL: "utf-8"] ++ data
+  end
 end
