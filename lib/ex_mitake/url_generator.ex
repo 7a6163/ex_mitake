@@ -25,6 +25,6 @@ defmodule ExMitake.UrlGenerator do
   end
 
   defp downcase(name) do
-    name |> to_string |> downcase()
+    name |> to_string |> String.downcase()
   end
 end
